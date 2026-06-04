@@ -8,6 +8,16 @@
   if (!gsap){ console.warn('[sections] GSAP 미로딩 — 정적 표시'); return; }
   if (ST) gsap.registerPlugin(ST);
 
+  // ── 모바일 터치 보정 ──
+  //   · ignoreMobileResize: 주소창 접힘/펼침(높이만 변동)으로 인한 리프레시 점프 방지
+  //   · normalizeScroll: 터치 스크롤을 JS로 일원화 → 핀+스크럽이 터치에서 끊기지 않음
+  //     (isTouch===1: 순수 터치 기기에서만. 터치 노트북(2)·데스크탑(0) 제외)
+  if (ST){
+    ST.config({ ignoreMobileResize: true });
+    if (ST.isTouch === 1) ST.normalizeScroll(true);
+  }
+  const mobileMQ = window.matchMedia('(max-width:780px)');
+
   /* ===== 시퀀스 스크럽 헬퍼 (hero.js 로직 재사용: 프리로드 + lerp + 인접 프레임 블렌딩) ===== */
   function makeSequence(canvas, dir, prefix){
     const ctx = canvas.getContext('2d');
@@ -47,7 +57,9 @@
       if (a){ ctx.globalAlpha = 1; ctx.drawImage(a, 0, 0, W, H); }
       if (b && fr > 0){ ctx.globalAlpha = fr; ctx.drawImage(b, 0, 0, W, H); ctx.globalAlpha = 1; }
     }
-    function loop(){ cur += (tar - cur) * 0.07; draw(cur); requestAnimationFrame(loop); }
+    // lerp 계수: 터치 기기는 플릭 스크롤이 빨라 더 단단히(0.13) 따라붙게 — 진행감 확보
+    const LERP = matchMedia('(pointer:coarse)').matches ? 0.13 : 0.07;
+    function loop(){ cur += (tar - cur) * LERP; draw(cur); requestAnimationFrame(loop); }
 
     return {
       get count(){ return N; },
@@ -127,7 +139,7 @@
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: '.spec', start: 'top top', end: '+=700%',   // 360% → 700% (≈1.94배): 타임라인이 더 긴 스크롤에 펼쳐져 한 번 밀어도 천천히
-        scrub: 1, pin: '.spec-pin', invalidateOnRefresh: true,
+        scrub: 1, pin: '.spec-pin', invalidateOnRefresh: true, anticipatePin: 1,
         onUpdate: (self) => {
           const p = self.progress;
           let fp;
@@ -182,7 +194,7 @@
       scrollTrigger: {
         trigger: '.gallery', start: 'top top',
         end: () => '+=' + Math.max(1, amount() * SPEED),
-        pin: true, scrub: 1, invalidateOnRefresh: true
+        pin: true, scrub: 1, invalidateOnRefresh: true, anticipatePin: 1
       }
     });
   }
@@ -206,7 +218,12 @@
   if (ctaEls.length){
     gsap.from(ctaEls, {
       y: 42, autoAlpha: 0, duration: 0.9, ease: 'power3.out', stagger: 0.15,
-      scrollTrigger: { trigger: '.cta', start: 'top 72%', once: true }
+      scrollTrigger: {
+        trigger: '.cta',
+        // 모바일: 주소창 변동으로 시작점이 밀려 첫 하강 때 안 나타나는 문제 → 더 일찍(85%) 발동
+        start: () => mobileMQ.matches ? 'top 85%' : 'top 72%',
+        once: true, invalidateOnRefresh: true
+      }
     });
   }
 

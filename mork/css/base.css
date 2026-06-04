@@ -52,6 +52,11 @@ a{ color:inherit; text-decoration:none; }
   height:2800vh;
   pointer-events:none;
 }
+/* 모바일(세로): 한 스와이프당 이동량이 작아 2800vh면 진행감이 거의 없음
+ * → 1500vh로 단축: 같은 스와이프에 시퀀스가 ~1.9배 진행, 스크롤에 붙는 느낌 */
+@media (max-aspect-ratio:1/1){
+  .scroll-track{ height:1500vh; }
+}
 
 /* ============ NAV (고정 · 미니멀) ============ */
 .nav{

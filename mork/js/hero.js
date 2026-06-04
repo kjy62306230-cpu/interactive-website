@@ -73,9 +73,12 @@
   }
 
   // ---- lerp 스크럽 루프 ----
+  //   터치 기기(폰): 플릭 스크롤이 빨라 0.05면 캔버스가 한참 뒤따라옴(스크롤에 안 붙는 느낌)
+  //   → 0.12로 더 단단히 따라붙게. 데스크탑은 기존 0.05 유지(부드러운 관성감).
+  const LERP = matchMedia('(pointer:coarse)').matches ? 0.12 : 0.05;
   let cur = 0, tar = 0;
   function loop(){
-    cur += (tar - cur) * (reduce ? 1 : 0.05);   // reduce: 즉시(스무딩 없음)
+    cur += (tar - cur) * (reduce ? 1 : LERP);   // reduce: 즉시(스무딩 없음)
     draw(cur);
     lay();
     requestAnimationFrame(loop);
