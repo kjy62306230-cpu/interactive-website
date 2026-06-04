@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Reference / source packages (not part of deployed sites)
+_reference/
+*-package/
+*-UPDATED/
+_check_*
+
+# Backups / originals
+*backup*/
+*백업*/
+*원본*/
+
+# Tooling
+.claude/

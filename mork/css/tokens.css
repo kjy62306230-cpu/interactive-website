@@ -1,0 +1,24 @@
+/* tokens.css — MØRK 색·타이포·스페이싱 (MORK.md §2) */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@400;500&display=swap');
+
+:root{
+  /* 색 */
+  --ink:    #050506;  /* 베이스 (거의 검정) */
+  --panel:  #0d0d0f;  /* 섹션 배경 변주 */
+  --metal:  #c9c4bd;  /* 메탈 텍스트/강조 */
+  --fog:    #6e6a64;  /* 보조 텍스트/라벨 */
+  --accent: #e8e3da;  /* 메인 텍스트 (오프화이트) */
+  --spark:  #ffffff;  /* 파티클 */
+
+  /* 타이포 */
+  --display: 'Cormorant Garamond', Georgia, serif;
+  --ui:      'Inter', system-ui, -apple-system, sans-serif;
+
+  /* 자간 (대문자 라벨) */
+  --track-label: 0.42em;
+  --track-tag:   0.4em;
+
+  /* 스페이싱 / 레이아웃 */
+  --pad-x: clamp(1.5rem, 6vw, 5rem);
+  --ease:  cubic-bezier(.22, 1, .36, 1);
+}

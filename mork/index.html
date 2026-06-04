@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MØRK — Sound, assembled.</title>
+  <meta name="description" content="MØRK Pro Wireless — Engineered in darkness. Sound, assembled.">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/sections.css">
+</head>
+<body>
+
+  <!-- 로딩 -->
+  <div class="loading" id="loading"><span>MØRK</span></div>
+
+  <!-- 여백 글로우 -->
+  <div class="glow"></div>
+
+  <!-- 전역 배경 캔버스 -->
+  <canvas id="bg"></canvas>
+
+  <!-- NAV (고정 · 미니멀) -->
+  <nav class="nav">
+    <a class="wordmark" href="#" aria-label="MØRK home">MØRK</a>
+    <div class="links">
+      <a href="#sound">Sound</a>
+      <a href="#tech">Tech</a>
+      <a href="#buy">Buy</a>
+    </div>
+  </nav>
+
+  <!-- HERO: 시퀀스 스크럽 캔버스 -->
+  <div class="stage">
+    <canvas id="c" width="900" height="900" aria-label="MØRK Pro Wireless — assembly sequence"></canvas>
+  </div>
+
+  <!-- HERO 타이포 레이어 -->
+  <div class="layer show" id="l-intro">
+    <div class="brand">MØRK</div>
+    <div class="sub">Wireless · Engineered in darkness</div>
+  </div>
+  <div class="layer" id="l-left">
+    <div class="eyebrow">The Mechanism</div>
+    <div class="display">Every part,<br><em>perfected</em> in motion.</div>
+  </div>
+  <div class="layer" id="l-right">
+    <div class="eyebrow">Precision Assembly</div>
+    <div class="display">Sound,<br><em>assembled.</em></div>
+  </div>
+  <div class="layer" id="l-end">
+    <div class="display"><em>Sound,</em> assembled.</div>
+    <div class="tag">MØRK — Pro Wireless</div>
+  </div>
+
+  <!-- 스크롤 힌트 -->
+  <div class="hint" id="hint">Scroll</div>
+
+  <!-- 스크럽 트랙 (스크롤 길이) -->
+  <div class="scroll-track"></div>
+
+  <!-- ============ [2]~[6] 섹션 ============ -->
+  <main class="content">
+
+    <!-- [2] STATEMENT -->
+    <section id="sound" class="section statement" aria-label="Statement">
+      <h2 class="statement-line">
+        <span class="w"><span class="i">Sound,</span></span>
+        <span class="w"><span class="i"><em>assembled.</em></span></span>
+      </h2>
+    </section>
+
+    <!-- [3] SPEC SCROLL -->
+    <section id="tech" class="section spec" aria-label="Specifications">
+      <div class="spec-pin">
+        <div class="spec-stage">
+          <div class="spec-slogan">Sound, <em>assembled.</em></div>
+          <figure class="spec-seq">
+            <canvas id="spec-c" width="900" height="900" aria-label="MØRK case — rotating and opening sequence"></canvas>
+          </figure>
+          <ul class="spec-list">
+            <li class="spec-item"><span class="spec-line"></span><div><span class="spec-k">01</span><span class="spec-v">Driver</span></div></li>
+            <li class="spec-item"><span class="spec-line"></span><div><span class="spec-k">02</span><span class="spec-v">Battery<span class="spec-sub">60mAh</span></span></div></li>
+            <li class="spec-item"><span class="spec-line"></span><div><span class="spec-k">03</span><span class="spec-v">Bluetooth<span class="spec-sub">5.3</span></span></div></li>
+            <li class="spec-item"><span class="spec-line"></span><div><span class="spec-k">04</span><span class="spec-v">Brushed metal<span class="spec-sub">housing</span></span></div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- [4] GALLERY -->
+    <section class="section gallery" aria-label="Gallery">
+      <div class="gallery-head" data-reveal>
+        <span class="eyebrow">Gallery</span>
+        <div class="display">Every <em>angle.</em></div>
+      </div>
+      <div class="gallery-track">
+        <figure class="g-card"><img src="assets/img/case-closed-front.png" alt="MØRK case, closed front view"><figcaption>Closed · Front</figcaption></figure>
+        <figure class="g-card"><img src="assets/img/case-open-buds-in.png" alt="MØRK case, open with buds inside"><figcaption>Open · Buds in</figcaption></figure>
+        <figure class="g-card"><img src="assets/img/case-side-45.png" alt="MØRK case, 45-degree profile"><figcaption>Profile · 45°</figcaption></figure>
+        <figure class="g-card"><img src="assets/img/explode-a.png" alt="MØRK exploded view, angle A"><figcaption>Exploded · I</figcaption></figure>
+        <figure class="g-card"><img src="assets/img/explode-c.png" alt="MØRK exploded view, angle C"><figcaption>Exploded · II</figcaption></figure>
+        <figure class="g-card"><img src="assets/img/case-buds-float.png" alt="MØRK earbuds assembled, floating above the case"><figcaption>Assembled · Float</figcaption></figure>
+        <figure class="g-card"><img src="assets/img/explode-b.png" alt="MØRK exploded view, angle B"><figcaption>Exploded · III</figcaption></figure>
+        <figure class="g-card"><img src="assets/img/case-topdown.png" alt="MØRK case, top-down view"><figcaption>Top · Down</figcaption></figure>
+        <figure class="g-card"><img src="assets/img/case-rear-usbc.png" alt="MØRK case, rear with USB-C port"><figcaption>Rear · USB-C</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- [5] CTA -->
+    <section id="buy" class="section cta" aria-label="Experience MØRK">
+      <div class="cta-inner">
+        <figure class="cta-img">
+          <img src="assets/img/case-closed-front.png" alt="MØRK Pro Wireless case">
+        </figure>
+        <div class="cta-title"><em>Experience</em> MØRK</div>
+        <p class="cta-sub">Engineered in darkness.</p>
+        <!-- TODO: 추후 구매 페이지(buy.html 등) 링크 연결 — href="#"를 실제 경로로 교체만 하면 됨.
+             href가 "#"일 때만 JS가 점프 차단(preventDefault)하므로, 경로 넣으면 자동으로 정상 이동. -->
+        <a class="cta-btn" href="#"><span>Experience MØRK</span></a>
+      </div>
+    </section>
+
+    <!-- [6] FOOTER -->
+    <footer class="footer">
+      <div class="footer-col footer-left">
+        <span class="footer-mark">MØRK</span>
+      </div>
+      <nav class="footer-col footer-center" aria-label="Footer navigation">
+        <a href="#sound">Sound</a>
+        <a href="#tech">Tech</a>
+        <a href="#buy">Buy</a>
+      </nav>
+      <div class="footer-col footer-right">
+        <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="MØRK on Instagram">
+          <svg class="footer-ig" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" focusable="false">
+            <rect x="2.5" y="2.5" width="19" height="19" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+            <circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.6"/>
+            <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor"/>
+          </svg>
+          <span>Instagram</span>
+        </a>
+        <span class="footer-copy">© 2026 MØRK</span>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- GSAP (리빌·핀·스크럽 인터랙션) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <script src="js/background.js"></script>
+  <script src="js/hero.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/sections.js"></script>
+</body>
+</html>
